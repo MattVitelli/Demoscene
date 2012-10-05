@@ -35,7 +35,7 @@ void GenerateWalls(std::vector<chamber>& cellSet, std::vector<wall>& walls, int 
 				wX.two = cO+1; //Same as (x+1)+y*width
 				walls.push_back(wX);
 			}
-			if(y < height)
+			if(y+1 < height)
 			{
 				wall wY;
 				wY.one = cO;

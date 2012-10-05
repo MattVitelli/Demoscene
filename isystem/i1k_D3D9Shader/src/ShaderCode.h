@@ -32,17 +32,7 @@ static const char densityVS[] = \
 	"return OUT;"
 "}";
 
-//static const char densityFn[] = \
-
-/*
-"#define EPS 0.001\n"
-"#define CHAMBER_SIZE 4\n"
-"static const float chambers[] = { 0, 0, 3, 3, 2, 2, 2, 1, 1, 0, 0, 3, 3, 4, 3, 0, 1, 4, 0, 2, 1, 0, 2, 0, 0, 4, 0, 0, 4, 2, 1, 4, 4, 0, 3, 0, 1, 4, 0, 3, 2, 4, 0, 2, 3, 4, 0, 2, 2, 4, 2, 2, 2, 1, 1, 0, 2, 2, 2, 2, 2, 1, 1, 4, 4, 0, 3, 3, 0, 2, 4, 2, 4, 1, 0, 2, 4, 0, 2, 1, 4, 2, 2, 0, 0, 3, 2, 3, 4, 2, 3, 3, 1, 2, 1, 0, 2, 1, 3, 2, 0, 2, 1, 0, 4, 4, 3, 0, 1, 3, 1, 1, 0, 1, 3, 4, 4, 1, 3, 0, 2, 0, 4, 2, 4, 0, 1, 1, 0, 4, 4, 2, 1, 4, 0, 1, 1, 2, 0, 0, 0, 1, 2, 0, 1, 1, 3, 0, 3, 2, 0, 1, 3, 3, 0, 0, 2, 3, 0, 3, 3, 1, 0, 1, 4, 3, 4, 0, 0, 1, 3, 2, 0, 2, 4, 0, 3, 4, 0, 2, 2, 0, 3, 2, 4, 3, 4, 3, 4, 0, 4, 2, 1, 1, 2, 4, 1, 0, 1, 3, 1, 2, 4, 2, 4, 2, 0, 0, 3, 4, 1, 3, 2, 3, 1, 2, 2, 2, 1, 0, 3, 1, 1, 4, 2, 0, 1, 4, 0, 4, 4, 2, 2, 2, 0, 0, 1, 0, 3, 1, 2, 4, 4, 4, 3, 0, 0, 2, 0, 0, 1, 4, 4, 0, 0, 0, };"
-*/
-
-static const char densityPS[] = \
-
-"static const int SHIFT = 1024;" //1024
+static const char densityFunctionsPS[] = \
 "inline float sdSphere(float3 wp, float4 sphere)"
 "{"
 	"return length(wp-sphere.xyz)-sphere.w;"
@@ -96,9 +86,9 @@ static const char densityPS[] = \
     "w.xy = mul(matS2, w.xy);"
 	"float t3 = sdOctPrism(w, float2(2.2,0.5));"
 	"return min(t1,min(t2,t3));"
-"}"
+"}";
 
-"inline float GetWall(float2 tc) { float2 crd = floor((tc+SHIFT+5)*0.1)%CHAMBER_SIZE; return chambers[crd.x+crd.y*CHAMBER_SIZE];}"
+static const char distanceFunctionPS[] = \
 
 "inline float distFn(float3 wp, out float attrib)"
 "{"
@@ -107,62 +97,35 @@ static const char densityPS[] = \
 	"attrib = 1;"
 	"b = sdPlane(wp, float4(0,1,0,3));"
 	"if(b < t) { t = b; attrib = 3; }"
-	"float3 c = float3(10, 1, 10);"
-	//"float3 d = wp;"
-	"float3 d = (wp+SHIFT) % c - 0.5*c;"
+	"float3 d = (wp+SHIFT) % SCALE - 0.5*SCALE;"
     "d.y = wp.y;"
 	"b = sdColumn(d.xzy);"
 	"if(b < t) { t = b; attrib = 2; }"
 	"b = sdPlane(wp, float4(0,-1,0,9));"
 	"if(b < t) { t = b; attrib = 0; }"
 	"float2 tiles = float2(1.45, 1.45);"
-	"float walls = GetWall(wp.xz);"
 
-	"float3 d2 = d;"//(wp+SHIFT) % c - 0.5*c;"
-	"d2.xz += 0.5*c.xz;"
+	"float3 d2 = (((wp+SHIFT)/SCALE + 0.5) % CHAMBER_SIZE)*SCALE;"
+	"d2.y = wp.y;"
 	"float diff = wp.y-3;"
 	"float f = (cos(4*wp.y)*0.5+0.5)*saturate(diff*diff*0.085-0.4);"
 	"float thick = lerp(0.05, 0.55, f);"
-	"if(walls == 1 || walls == 3 || walls == 5 || walls == 7 || walls == 9 || walls == 11 || walls == 13 || walls == 15)"
-	"{b = udRoundBox(d2-float3(0,3,5), float4(10,6,thick,0.2));}"
-	"if(walls == 4 || walls == 5 || walls == 6 || walls == 7 || walls == 12 || walls == 13 || walls == 14 || walls == 15)"
-	"{b = min(b, udRoundBox(d2-float3(5,3,0), float4(thick,6,10,0.2)));}"
-	"if(walls == 2 || walls == 3 || walls == 6 || walls == 7 || walls == 10 || walls == 11 || walls == 14 || walls == 15)"
-	"{b = min(b, udRoundBox(d2-float3(0,3,-5), float4(10,6,thick,0.2)));}"
-	"if(walls == 8 || walls == 9 || walls == 10 || walls == 11 || walls == 12 || walls == 13 || walls == 14 || walls == 15)"
-	"{b = min(b, udRoundBox(d2-float3(-5,3,0), float4(thick,6,10,0.2)));}"
-	/*
-	"float diff = d.y-3;"
-	"float f = (cos(4*d.y)*0.5+0.5)*saturate(diff*diff*0.085-0.4);"
-	"float thick = lerp(0.05, 0.55, f);"
-	"b = udRoundBox(d-float3(0,3,0), float4(10,6,thick,0.2));"
-	"b = min(b, udRoundBox(d-float3(0,3,0), float4(thick,6,10,0.2)));"
-	*/
-	/*
-	"if(walls == 1 || walls == 3 || walls == 5 || walls == 7 || walls == 9 || walls == 11 || walls == 13 || walls == 15) b = max(-sdPlane(d, float4(1,0,0,-1)), b);"
-	"if(walls == 2 || walls == 3 || walls == 6 || walls == 7 || walls == 10 || walls == 11 || walls == 14 || walls == 15) b = max(-sdPlane(d, float4(-1,0,0,1)), b);"
-	"if(walls == 4 || walls == 5 || walls == 6 || walls == 7 || walls == 12 || walls == 13 || walls == 14 || walls == 15) b = max(-sdPlane(d, float4(0,0,1,-1)), b);"
-	"if(walls == 8 || walls == 9 || walls == 10 || walls == 11 || walls == 12 || walls == 13 || walls == 14 || walls == 15) b = max(-sdPlane(d, float4(0,0,-1,1)), b);"
-	*/
-	/*
-	"if(walls == 1 || walls == 3 || walls == 5 || walls == 7 || walls == 9 || walls == 11 || walls == 13 || walls == 15) b = max(8*-sdBox(d-float3(0,3,-0.5), float3(10,6,0.5)), b);"
-	"if(walls == 2 || walls == 3 || walls == 6 || walls == 7 || walls == 10 || walls == 11 || walls == 14 || walls == 15) b = max(8*-sdBox(d-float3(0,3,0.5), float3(10,6,0.5)), b);"
-	"if(walls == 4 || walls == 5 || walls == 6 || walls == 7 || walls == 12 || walls == 13 || walls == 14 || walls == 15) b = max(8*-sdBox(d-float3(-0.5,3,0), float3(0.5,6,10)), b);"
-	"if(walls == 8 || walls == 9 || walls == 10 || walls == 11 || walls == 12 || walls == 13 || walls == 14 || walls == 15) b = max(8*-sdBox(d-float3(0.5,3,0), float3(0.5,6,10)), b);"
-	*/
-	/*
-	"if(walls == 1 || walls == 3 || walls == 5 || walls == 7 || walls == 9 || walls == 11 || walls == 13 || walls == 15) b = max(8*-sdBox(d-float3(0,3,-0.5), float3(10,6,0.5)), b);"
-	"if(walls == 2 || walls == 3 || walls == 6 || walls == 7 || walls == 10 || walls == 11 || walls == 14 || walls == 15) b = max(8*-sdBox(d-float3(0,3,0.5), float3(10,6,0.5)), b);"
-	"if(walls == 4 || walls == 5 || walls == 6 || walls == 7 || walls == 12 || walls == 13 || walls == 14 || walls == 15) b = max(8*-sdBox(d-float3(-0.5,3,0), float3(0.5,6,10)), b);"
-	"if(walls == 8 || walls == 9 || walls == 10 || walls == 11 || walls == 12 || walls == 13 || walls == 14 || walls == 15) b = max(8*-sdBox(d-float3(0.5,3,0), float3(0.5,6,10)), b);"
-	*/
+	"b = udRoundBox(d2-float3(0,3,CHAMBER_SIZE*SCALE*0.5), float4(thick,6,CHAMBER_SIZE*SCALE,0.2));"
+	"b = min(b, udRoundBox(d2-float3((CHAMBER_SIZE-EPS)*SCALE,3,CHAMBER_SIZE*SCALE*0.5), float4(thick,6,CHAMBER_SIZE*SCALE,0.2)));"
+	"b = min(b, udRoundBox(d2-float3(CHAMBER_SIZE*SCALE*0.5,3,0), float4(CHAMBER_SIZE*SCALE,6,thick,0.2)));"
+	"b = min(b, udRoundBox(d2-float3(CHAMBER_SIZE*SCALE*0.5,3,(CHAMBER_SIZE-EPS)*SCALE), float4(CHAMBER_SIZE*SCALE,6,thick,0.2)));"
+	"b = min(b, GetMazeWalls(d2-float3(0,3,0),float4(thick, 6, SCALE*0.5, 0.2)));"
 	"if(b < t) { t = b; attrib = 5; }"
 
-	"d.xz = (wp.xz+1024) % tiles - 0.5*tiles;"
+	"d.xz = (wp.xz+SHIFT) % TILES - 0.5*TILES;"
 	"b = udRoundBox(d-float3(0,-3,0), float4(0.5,0.15,0.5,0.2));"
 	"if(b < t) { t = b; attrib = 4; }"
 	"return t;"
-"}"
+"}";
+
+static const char densityPS[] = \
+
+//"inline float GetWall(float2 tc) { float2 crd = floor((tc+SHIFT+5)*0.1)%CHAMBER_SIZE; return chambers[crd.x+crd.y*CHAMBER_SIZE];}"
 
 "uniform sampler2D NoiseMap : register(S0);"
 "uniform float2 invRes : register(C6);"
@@ -180,13 +143,11 @@ static const char densityPS[] = \
 "):color"
 "{"
 	"float3 rD = normalize(Ray);"
-
-	"const int linear_search_steps=32;"
     "float t=999;"
 	"float3 samplePos = EyePos+rD*Planes.x;"
 	"float numIter = 0;"
 	"float attribID = 0;"
-	"for(int i=0;(i<linear_search_steps && (abs(t) > EPS)); i++)"
+	"for(int i=0;(i<SAMPLES && (abs(t) > EPS)); i++)"
 	"{"
 		"t = distFn(samplePos, attribID);"
 		"samplePos += t*rD;"
@@ -194,12 +155,22 @@ static const char densityPS[] = \
 	"}"
     "t = length(samplePos-EyePos);"
 
+	"float3 l = normalize(1);"
+	"float m = 999;"
+	"float3 shadowPos = samplePos+l*Planes.x;"
+	"float shadowAttrib=-1;"
+	"for(int i=0;(i<SHADOWSAMPLES && (abs(m) > EPS)); i++)"
+	"{"
+		"m = distFn(shadowPos, shadowAttrib);"
+		"shadowPos += m*l;"
+	"}"
+
 	//"float3 N; N.x = distFn(samplePos+float3(EPS,0,0))-distFn(samplePos-float3(EPS,0,0)); N.y = distFn(samplePos+float3(0,EPS,0))-distFn(samplePos-float3(0,EPS,0)); N.z = distFn(samplePos+float3(0,0,EPS))-distFn(samplePos-float3(0,0,EPS)); N = normalize(N);"
 	"float3 N = normalize(cross(ddy(rD*t),ddx(rD*t)));"
 	"float4 projPos = mul(float4(samplePos.xyz,1), ViewProj);"
 	"PSOUT OUT;"
-	"float2 crd = floor((samplePos.xz+SHIFT+5)*0.1)%CHAMBER_SIZE; attribID = (crd.x+crd.y*CHAMBER_SIZE)/(CHAMBER_SIZE*CHAMBER_SIZE);"
-	"OUT.Color = float4(N,1) * attribID;"//tex2D(NoiseMap, GetTCWall(samplePos.xz)).x//((samplePos.xz+1024)*invRes)/10 + 0.5*invRes).x*0.2 * float4(N,1);"
+	//"float2 crd = floor((samplePos.xz+SHIFT+5)*0.1)%CHAMBER_SIZE; attribID = (crd.x+crd.y*CHAMBER_SIZE)/(CHAMBER_SIZE*CHAMBER_SIZE);"
+	"OUT.Color = float4(N,1) * attribID * ((shadowAttrib==0)+0.15);"//tex2D(NoiseMap, GetTCWall(samplePos.xz)).x//((samplePos.xz+1024)*invRes)/10 + 0.5*invRes).x*0.2 * float4(N,1);"
 	"return OUT;"
 "}";
 
