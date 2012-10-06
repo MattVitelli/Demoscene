@@ -1,6 +1,6 @@
  main_vc2008_deb
 
- Timestamp is 506e4ef7 (Thu Oct 04 20:07:35 2012)
+ Timestamp is 506fadf5 (Fri Oct 05 21:05:09 2012)
 
  Preferred load address is 00400000
 
@@ -54,12 +54,12 @@
  0001:00001050       ?UpdateMove@Camera@@QAEXUMoveInfo@@M@Z 00402050 f   Camera.obj
  0001:00001340       ?UpdateMatrices@Camera@@AAEXXZ 00402340 f   Camera.obj
  0001:00001480       ?SetupRenderParameters@Camera@@QAEXPAUIDirect3DDevice9@@@Z 00402480 f   Camera.obj
- 0001:000015a0       ??$move_s@U?$char_traits@D@std@@@_Traits_helper@std@@YAPADPADIPBDIU_Secure_char_traits_tag@1@@Z 004025a0 f i intro.obj
- 0001:000015e0       ??1?$_String_val@DV?$allocator@D@std@@@std@@QAE@XZ 004025e0 f i intro.obj
- 0001:00001620       ?allocate@?$_DebugHeapAllocator@D@std@@QAEPADI@Z 00402620 f i intro.obj
- 0001:000016a0       ??0bad_alloc@std@@QAE@ABV01@@Z 004026a0 f i intro.obj
- 0001:000016e0       ?append@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@ABV12@@Z 004026e0 f i intro.obj
- 0001:00001720       ?_Move_s@?$char_traits@D@std@@SAPADPADIPBDI@Z 00402720 f i intro.obj
+ 0001:000015a0       ?_Move_s@?$char_traits@D@std@@SAPADPADIPBDI@Z 004025a0 f i intro.obj
+ 0001:000015e0       ??0bad_alloc@std@@QAE@PBD@Z 004025e0 f i intro.obj
+ 0001:00001620       ?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00402620 f i intro.obj
+ 0001:00001650       ??0bad_alloc@std@@QAE@ABV01@@Z 00402650 f i intro.obj
+ 0001:000016a0       ??1bad_alloc@std@@UAE@XZ   004026a0 f i intro.obj
+ 0001:00001710       ??$copy_s@U?$char_traits@D@std@@@_Traits_helper@std@@YAPADPADIPBDIU_Secure_char_traits_tag@1@@Z 00402710 f i intro.obj
  0001:00001750       ??0D3DXVECTOR3@@QAE@XZ     00402750 f i Camera.obj
  0001:00001770       ??0D3DXMATRIX@@QAE@XZ      00402770 f i Camera.obj
  0001:00001790       ??0D3DXVECTOR3@@QAE@MMM@Z  00402790 f i Camera.obj
@@ -80,67 +80,93 @@
  0001:00002050       ?IsKeyDownOnce@InputManager@@QAE_NH@Z 00403050 f   InputManager.obj
  0001:000020c0       ?IsMouseKeyDown@InputManager@@QAE_NH@Z 004030c0 f   InputManager.obj
  0001:000020f0       ?IsMouseKeyDownOnce@InputManager@@QAE_NH@Z 004030f0 f   InputManager.obj
- 0001:00002160       ?_Orphan_all@_Container_base_secure@std@@QBEXXZ 00403160 f i intro.obj
- 0001:00002260       ?allocate@?$_DebugHeapAllocator@D@std@@QAAPADIPBX@Z 00403260 f i intro.obj
- 0001:000022e0       ??0?$_String_val@DV?$allocator@D@std@@@std@@IAE@V?$allocator@D@1@@Z 004032e0 f i intro.obj
- 0001:00002320       ?c_str@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEPBDXZ 00403320 f i intro.obj
- 0001:000023a0       ??_Ebad_alloc@std@@UAEPAXI@Z 004033a0 f i intro.obj
- 0001:000023a0       ??_Gbad_alloc@std@@UAEPAXI@Z 004033a0 f i intro.obj
- 0001:00002420       ??1_Container_base_secure@std@@QAE@XZ 00403420 f i intro.obj
- 0001:000024d0       ?append@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBD@Z 004034d0 f i intro.obj
- 0001:000025a0       ?size@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEIXZ 004035a0 f i intro.obj
- 0001:00002640       ??0_Container_base_secure@std@@QAE@XZ 00403640 f i intro.obj
- 0001:00002750       ??0?$_DebugHeapAllocator@D@std@@QAE@ABV01@@Z 00403750 f i intro.obj
- 0001:00002810       ?deallocate@?$allocator@D@std@@QAEXPADI@Z 00403810 f i intro.obj
- 0001:000029c0       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@ABV12@II@Z 004039c0 f i intro.obj
- 0001:00002fb0       ??0?$_String_val@DV?$allocator@D@std@@@std@@QAE@ABV01@@Z 00403fb0 f i intro.obj
+ 0001:00002160       ??1?$_String_val@DV?$allocator@D@std@@@std@@QAE@XZ 00403160 f i intro.obj
+ 0001:000021a0       ?_Myptr@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IBEPBDXZ 004031a0 f i intro.obj
+ 0001:000021e0       ?_Copy_s@?$char_traits@D@std@@SAPADPADIPBDI@Z 004031e0 f i intro.obj
+ 0001:00002210       _cosf                      00403210 f i intro.obj
+ 0001:00002240       ??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z 00403240 f i intro.obj
+ 0001:000022d0       ??0?$_String_val@DV?$allocator@D@std@@@std@@QAE@ABV01@@Z 004032d0 f i intro.obj
+ 0001:00002320       ??_Ebad_alloc@std@@UAEPAXI@Z 00403320 f i intro.obj
+ 0001:00002320       ??_Gbad_alloc@std@@UAEPAXI@Z 00403320 f i intro.obj
+ 0001:000023a0       ??Y?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@PBD@Z 004033a0 f i intro.obj
+ 0001:000023d0       ??0?$_String_val@DV?$allocator@D@std@@@std@@IAE@V?$allocator@D@1@@Z 004033d0 f i intro.obj
+ 0001:00002420       ?deallocate@?$_DebugHeapAllocator@D@std@@QAEXPADI@Z 00403420 f i intro.obj
+ 0001:00002450       ?deallocate@?$allocator@D@std@@QAEXPADI@Z 00403450 f i intro.obj
+ 0001:00002480       ??$_Char_traits_cat@U?$char_traits@D@std@@@std@@YA?AU_Secure_char_traits_tag@0@XZ 00403480 f i intro.obj
+ 0001:000024d0       ??0?$_DebugHeapAllocator@D@std@@QAE@XZ 004034d0 f i intro.obj
+ 0001:00002500       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBD@Z 00403500 f i intro.obj
+ 0001:00002550       ?_Eos@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAEXI@Z 00403550 f i intro.obj
+ 0001:000025e0       ??$_DebugHeapDelete@X@std@@YAXPAX@Z 004035e0 f i intro.obj
+ 0001:00002620       ??$copy_s@U?$char_traits@D@std@@@_Traits_helper@std@@YAPADPADIPBDI@Z 00403620 f i intro.obj
+ 0001:00002660       ?GetVertexShader@Shader@@QAEPAUIDirect3DVertexShader9@@XZ 00403660 f i intro.obj
+ 0001:00002680       ??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00403680 f i intro.obj
+ 0001:000026f0       ??$move_s@U?$char_traits@D@std@@@_Traits_helper@std@@YAPADPADIPBDI@Z 004036f0 f i intro.obj
+ 0001:00002780       ??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z 00403780 f i intro.obj
+ 0001:00002840       ?length@?$char_traits@D@std@@SAIPBD@Z 00403840 f i intro.obj
+ 0001:00002860       ?_Tidy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAEX_NI@Z 00403860 f i intro.obj
+ 0001:00002910       ?assign@?$char_traits@D@std@@SAXAADABD@Z 00403910 f i intro.obj
+ 0001:00002920       ??$_Allocate@D@std@@YAPADIPAD@Z 00403920 f i intro.obj
+ 0001:000029c0       ??1_Container_base_secure@std@@QAE@XZ 004039c0 f i intro.obj
+ 0001:000029f0       ?append@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBD@Z 004039f0 f i intro.obj
+ 0001:00002a70       ??0?$_DebugHeapAllocator@D@std@@QAE@ABV01@@Z 00403a70 f i intro.obj
+ 0001:00002aa0       ?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@II@Z 00403aa0 f i intro.obj
+ 0001:00002b60       ?append@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@ABV12@II@Z 00403b60 f i intro.obj
+ 0001:00002c70       ?max_size@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEIXZ 00403c70 f i intro.obj
+ 0001:00002e70       ??$move_s@U?$char_traits@D@std@@@_Traits_helper@std@@YAPADPADIPBDIU_Secure_char_traits_tag@1@@Z 00403e70 f i intro.obj
+ 0001:00002ea0       __startTwoArgErrorHandling 00403ea0 f   LIBCMTD:_genexcep_.obj
+ 0001:00002eb7       __startOneArgErrorHandling 00403eb7 f   LIBCMTD:_genexcep_.obj
+ 0001:00002f00       ?allocate@?$_DebugHeapAllocator@D@std@@QAEPADI@Z 00403f00 f i intro.obj
+ 0001:00002fb0       ?size@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEIXZ 00403fb0 f i intro.obj
  0001:00003010       ?GetPosition@Camera@@QAE?AUD3DXVECTOR3@@XZ 00404010 f i intro.obj
- 0001:00003050       ??BD3DXVECTOR2@@QAEPAMXZ   00404050 f i intro.obj
- 0001:00003070       ?GetPixelShader@Shader@@QAEPAUIDirect3DPixelShader9@@XZ 00404070 f i intro.obj
- 0001:00003090       ?GetVertexShader@Shader@@QAEPAUIDirect3DVertexShader9@@XZ 00404090 f i intro.obj
- 0001:000030b0       ??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z 004040b0 f i intro.obj
- 0001:00003160       ??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@ABV01@@Z 00404160 f i intro.obj
- 0001:00003210       ??1?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@XZ 00404210 f i intro.obj
- 0001:000032a0       ??Y?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@ABV01@@Z 004042a0 f i intro.obj
- 0001:000032e0       ??Y?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@PBD@Z 004042e0 f i intro.obj
- 0001:00003340       ?_Tidy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAEX_NI@Z 00404340 f i intro.obj
- 0001:00003400       ??0bad_alloc@std@@QAE@PBD@Z 00404400 f i intro.obj
- 0001:00003440       ??1bad_alloc@std@@UAE@XZ   00404440 f i intro.obj
- 0001:000034d0       ?max_size@?$allocator@D@std@@QBEIXZ 004044d0 f i intro.obj
- 0001:00003520       ??$_Char_traits_cat@U?$char_traits@D@std@@@std@@YA?AU_Secure_char_traits_tag@0@XZ 00404520 f i intro.obj
- 0001:00003570       ?deallocate@?$_DebugHeapAllocator@D@std@@QAEXPADI@Z 00404570 f i intro.obj
- 0001:00003620       ??0?$_DebugHeapAllocator@D@std@@QAE@XZ 00404620 f i intro.obj
- 0001:00003650       ??1_String_base@std@@QAE@XZ 00404650 f i intro.obj
- 0001:000036b0       ?append@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@ABV12@II@Z 004046b0 f i intro.obj
- 0001:00003820       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBDI@Z 00404820 f i intro.obj
- 0001:000038e0       ?length@?$char_traits@D@std@@SAIPBD@Z 004048e0 f i intro.obj
- 0001:00003980       ??$_Allocate@D@std@@YAPADIPAD@Z 00404980 f i intro.obj
- 0001:00003a20       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBD@Z 00404a20 f i intro.obj
- 0001:00003ac0       ?_Myptr@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IBEPBDXZ 00404ac0 f i intro.obj
- 0001:00003b70       ??0?$allocator@D@std@@QAE@XZ 00404b70 f i intro.obj
- 0001:00003ba0       ??0_String_base@std@@QAE@XZ 00404ba0 f i intro.obj
- 0001:00003c00       ?append@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBDI@Z 00404c00 f i intro.obj
- 0001:00003d60       ?_Grow@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAE_NI_N@Z 00404d60 f i intro.obj
- 0001:00003f70       ?erase@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@II@Z 00404f70 f i intro.obj
- 0001:00004050       ?_Eos@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAEXI@Z 00405050 f i intro.obj
- 0001:000040a0       ?assign@?$char_traits@D@std@@SAXAADABD@Z 004050a0 f i intro.obj
- 0001:00004100       ?_Myptr@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAEPADXZ 00405100 f i intro.obj
- 0001:00004220       ??0?$allocator@D@std@@QAE@ABV01@@Z 00405220 f i intro.obj
- 0001:000042c0       ?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAEXII@Z 004052c0 f i intro.obj
- 0001:000044a0       ?max_size@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QBEIXZ 004054a0 f i intro.obj
- 0001:00004540       ?_Inside@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAE_NPBD@Z 00405540 f i intro.obj
- 0001:000045a0       ?allocate@?$allocator@D@std@@QAEPADI@Z 004055a0 f i intro.obj
- 0001:00004600       ??$_Debug_pointer@D@std@@YAXPBDPB_WI@Z 00405600 f i intro.obj
- 0001:00004650       ??$_DebugHeapDelete@X@std@@YAXPAX@Z 00405650 f i intro.obj
- 0001:000046a0       ??$copy_s@U?$char_traits@D@std@@@_Traits_helper@std@@YAPADPADIPBDI@Z 004056a0 f i intro.obj
- 0001:00004730       ??$move_s@U?$char_traits@D@std@@@_Traits_helper@std@@YAPADPADIPBDI@Z 00405730 f i intro.obj
- 0001:00004800       ??$copy_s@U?$char_traits@D@std@@@_Traits_helper@std@@YAPADPADIPBDIU_Secure_char_traits_tag@1@@Z 00405800 f i intro.obj
- 0001:00004830       ?_Copy_s@?$char_traits@D@std@@SAPADPADIPBDI@Z 00405830 f i intro.obj
+ 0001:00003050       ?cos@@YAMM@Z               00404050 f i intro.obj
+ 0001:00003090       ?sin@@YAMM@Z               00404090 f i intro.obj
+ 0001:000030b0       _sinf                      004040b0 f i intro.obj
+ 0001:00003160       ??BD3DXVECTOR2@@QAEPAMXZ   00404160 f i intro.obj
+ 0001:00003210       ??BD3DXVECTOR3@@QAEPAMXZ   00404210 f i intro.obj
+ 0001:000032a0       ?GetPixelShader@Shader@@QAEPAUIDirect3DPixelShader9@@XZ 004042a0 f i intro.obj
+ 0001:00003360       ?_Orphan_all@_Container_base_secure@std@@QBEXXZ 00404360 f i intro.obj
+ 0001:00003440       ??Y?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV01@ABV01@@Z 00404440 f i intro.obj
+ 0001:00003470       ?_Grow@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAE_NI_N@Z 00404470 f i intro.obj
+ 0001:00003520       ??$_Debug_pointer@D@std@@YAXPBDPB_WI@Z 00404520 f i intro.obj
+ 0001:00003570       ?allocate@?$_DebugHeapAllocator@D@std@@QAAPADIPBX@Z 00404570 f i intro.obj
+ 0001:000036d0       _cos                       004046d0 f   LIBCMTD:_cos_.obj
+ 0001:00003710       __CIcos                    00404710 f   LIBCMTD:_cos_.obj
+ 0001:0000374b       __CIcos_default            0040474b f   LIBCMTD:_cos_.obj
+ 0001:0000375f       __cos_default              0040475f     LIBCMTD:_cos_.obj
+ 0001:00003820       ??0_String_base@std@@QAE@XZ 00404820 f i intro.obj
+ 0001:000038e0       ??1_String_base@std@@QAE@XZ 004048e0 f i intro.obj
+ 0001:00003980       ?max_size@?$allocator@D@std@@QBEIXZ 00404980 f i intro.obj
+ 0001:00003a20       ?append@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@ABV12@@Z 00404a20 f i intro.obj
+ 0001:00003a70       _sin                       00404a70 f   LIBCMTD:_sin_.obj
+ 0001:00003ab0       __CIsin                    00404ab0 f   LIBCMTD:_sin_.obj
+ 0001:00003aeb       __CIsin_default            00404aeb f   LIBCMTD:_sin_.obj
+ 0001:00003aff       __sin_default              00404aff     LIBCMTD:_sin_.obj
+ 0001:00003c00       ??0?$allocator@D@std@@QAE@XZ 00404c00 f i intro.obj
+ 0001:00003c30       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@ABV12@II@Z 00404c30 f i intro.obj
+ 0001:00003d60       ?append@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBDI@Z 00404d60 f i intro.obj
+ 0001:00003f70       ??0_Container_base_secure@std@@QAE@XZ 00404f70 f i intro.obj
+ 0001:00004100       ?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBDI@Z 00405100 f i intro.obj
+ 0001:00004300       __87except                 00405300 f   LIBCMTD:_87except_.obj
+ 0001:00004540       ?_Myptr@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAEPADXZ 00405540 f i intro.obj
+ 0001:000045a0       ??0?$allocator@D@std@@QAE@ABV01@@Z 004055a0 f i intro.obj
+ 0001:000046a0       ?_Inside@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAE_NPBD@Z 004056a0 f i intro.obj
+ 0001:00004730       ?allocate@?$allocator@D@std@@QAEPADI@Z 00405730 f i intro.obj
  0001:00004860       _WinMain@16                00405860 f   main_deb.obj
+ 0001:00005130       __CIcos_pentium4           00406130 f   LIBCMTD:_cos_pentium4_.obj
+ 0001:00005148       __cos_pentium4             00406148     LIBCMTD:_cos_pentium4_.obj
  0001:00005360       _floorf                    00406360 f i main_deb.obj
  0001:000053a0       ?GenerateWalls@@YAXAAV?$vector@V?$set@HU?$less@H@std@@V?$allocator@H@2@@std@@V?$allocator@V?$set@HU?$less@H@std@@V?$allocator@H@2@@std@@@2@@std@@AAV?$vector@Uwall@@V?$allocator@Uwall@@@std@@@2@HH@Z 004063a0 f   Maze.obj
  0001:00005540       ?RemoveWall@@YAXPAHUwall@@HH@Z 00406540 f   Maze.obj
  0001:00005600       ?CreateMaze@@YAPAHHH@Z     00406600 f   Maze.obj
+ 0001:00005b50       __twoToTOS                 00406b50 f   LIBCMTD:_common_.obj
+ 0001:00005b65       __load_CW                  00406b65 f   LIBCMTD:_common_.obj
+ 0001:00005b7c       __convertTOStoQNaN         00406b7c f   LIBCMTD:_common_.obj
+ 0001:00005b95       __fload_withFB             00406b95 f   LIBCMTD:_common_.obj
+ 0001:00005bd8       __checkTOS_withFB          00406bd8 f   LIBCMTD:_common_.obj
+ 0001:00005bee       __fast_exit                00406bee f   LIBCMTD:_common_.obj
+ 0001:00005bfb       __math_exit                00406bfb f   LIBCMTD:_common_.obj
+ 0001:00005c25       __check_overflow_exit      00406c25 f   LIBCMTD:_common_.obj
+ 0001:00005c39       __check_range_exit         00406c39 f   LIBCMTD:_common_.obj
  0001:00005d40       ??1?$set@HU?$less@H@std@@V?$allocator@H@2@@std@@QAE@XZ 00406d40 f i Maze.obj
  0001:00005d70       ??1?$pair@Viterator@?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@_N@std@@QAE@XZ 00406d70 f i Maze.obj
  0001:00005da0       ??1iterator@?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@QAE@XZ 00406da0 f i Maze.obj
@@ -211,8 +237,8 @@
  0001:000082c0       ??_Elogic_error@std@@UAEPAXI@Z 004092c0 f i Maze.obj
  0001:00008310       ??1logic_error@std@@UAE@XZ 00409310 f i Maze.obj
  0001:00008360       ??1length_error@std@@UAE@XZ 00409360 f i Maze.obj
- 0001:000083a0       ??_Glength_error@std@@UAEPAXI@Z 004093a0 f i Maze.obj
  0001:000083a0       ??_Elength_error@std@@UAEPAXI@Z 004093a0 f i Maze.obj
+ 0001:000083a0       ??_Glength_error@std@@UAEPAXI@Z 004093a0 f i Maze.obj
  0001:000083f0       ?_Lmost@?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@IBEAAPAU_Node@?$_Tree_nod@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@2@XZ 004093f0 f i Maze.obj
  0001:00008430       ?_Root@?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@IBEAAPAU_Node@?$_Tree_nod@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@2@XZ 00409430 f i Maze.obj
  0001:00008470       ?_Tidy@?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@IAEXXZ 00409470 f i Maze.obj
@@ -302,6 +328,25 @@
  0001:0000b6c0       ??0?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@QAE@ABV01@@Z 0040c6c0 f i Maze.obj
  0001:0000b7d0       ?_Make_iter@?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@QBE?AViterator@12@Vconst_iterator@12@@Z 0040c7d0 f i Maze.obj
  0001:0000b8c0       ?erase@?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@QAE?AViterator@12@Vconst_iterator@12@@Z 0040c8c0 f i Maze.obj
+ 0001:0000c0e0       __trandisp1                0040d0e0 f   LIBCMTD:_87disp_.obj
+ 0001:0000c147       __trandisp2                0040d147 f   LIBCMTD:_87disp_.obj
+ 0001:0000c1d3       __rttospopde               0040d1d3     LIBCMTD:_87disp_.obj
+ 0001:0000c1d8       __rttospop                 0040d1d8     LIBCMTD:_87disp_.obj
+ 0001:0000c1da       __rtnospop                 0040d1da     LIBCMTD:_87disp_.obj
+ 0001:0000c1dc       __rttosnpop                0040d1dc     LIBCMTD:_87disp_.obj
+ 0001:0000c1dd       __rtnospopde               0040d1dd     LIBCMTD:_87disp_.obj
+ 0001:0000c1e4       __rtzeropop                0040d1e4     LIBCMTD:_87disp_.obj
+ 0001:0000c1e6       __rtzeronpop               0040d1e6     LIBCMTD:_87disp_.obj
+ 0001:0000c1eb       __rtonepop                 0040d1eb     LIBCMTD:_87disp_.obj
+ 0001:0000c1ed       __rtonenpop                0040d1ed     LIBCMTD:_87disp_.obj
+ 0001:0000c1f2       __tosnan1                  0040d1f2     LIBCMTD:_87disp_.obj
+ 0001:0000c21d       __nosnan2                  0040d21d     LIBCMTD:_87disp_.obj
+ 0001:0000c21f       __tosnan2                  0040d21f     LIBCMTD:_87disp_.obj
+ 0001:0000c247       __nan2                     0040d247     LIBCMTD:_87disp_.obj
+ 0001:0000c286       __rtindfpop                0040d286     LIBCMTD:_87disp_.obj
+ 0001:0000c288       __rtindfnpop               0040d288     LIBCMTD:_87disp_.obj
+ 0001:0000c299       __rttosnpopde              0040d299     LIBCMTD:_87disp_.obj
+ 0001:0000c2a3       __rtchsifneg               0040d2a3     LIBCMTD:_87disp_.obj
  0001:0000c2e0       ?clear@?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@QAEXXZ 0040d2e0 f i Maze.obj
  0001:0000c380       ?_Buynode@?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@IAEPAU_Node@?$_Tree_nod@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@2@XZ 0040d380 f i Maze.obj
  0001:0000c590       ??0?$_Tree_ptr@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@QAE@ABU?$less@H@1@V?$allocator@H@1@@Z 0040d590 f i Maze.obj
@@ -516,8 +561,8 @@
  0001:00011920       __CxxThrowException@8      00412920 f   LIBCMTD:throw.obj
  0001:00011980       ?name@type_info@@QBEPBDPAU__type_info_node@@@Z 00412980 f   LIBCMTD:typinfo.obj
  0001:000119a0       ??1type_info@@UAE@XZ       004129a0 f   LIBCMTD:typinfo.obj
- 0001:000119d0       ??_Etype_info@@UAEPAXI@Z   004129d0 f i LIBCMTD:typinfo.obj
  0001:000119d0       ??_Gtype_info@@UAEPAXI@Z   004129d0 f i LIBCMTD:typinfo.obj
+ 0001:000119d0       ??_Etype_info@@UAEPAXI@Z   004129d0 f i LIBCMTD:typinfo.obj
  0001:00011a00       ?_name_internal_method@type_info@@QBEPBDPAU__type_info_node@@@Z 00412a00 f   LIBCMTD:typinfo.obj
  0001:00011a20       ?_type_info_dtor_internal_method@type_info@@QAEXXZ 00412a20 f   LIBCMTD:typinfo.obj
  0001:00011a40       ??8type_info@@QBE_NABV0@@Z 00412a40 f   LIBCMTD:typinfo.obj
@@ -527,8 +572,8 @@
  0001:00011af0       ??0type_info@@AAE@ABV0@@Z  00412af0 f   LIBCMTD:typinfo.obj
  0001:00011b10       ??4type_info@@AAEAAV0@ABV0@@Z 00412b10 f   LIBCMTD:typinfo.obj
  0001:00011b30       ??0exception@std@@QAE@XZ   00412b30 f   LIBCMTD:stdexcpt.obj
- 0001:00011b60       ??_Eexception@std@@UAEPAXI@Z 00412b60 f i LIBCMTD:stdexcpt.obj
  0001:00011b60       ??_Gexception@std@@UAEPAXI@Z 00412b60 f i LIBCMTD:stdexcpt.obj
+ 0001:00011b60       ??_Eexception@std@@UAEPAXI@Z 00412b60 f i LIBCMTD:stdexcpt.obj
  0001:00011b90       ??0exception@std@@QAE@ABQBD@Z 00412b90 f   LIBCMTD:stdexcpt.obj
  0001:00011c20       ??0exception@std@@QAE@ABQBDH@Z 00412c20 f   LIBCMTD:stdexcpt.obj
  0001:00011c50       ??0exception@std@@QAE@ABV01@@Z 00412c50 f   LIBCMTD:stdexcpt.obj
@@ -536,13 +581,13 @@
  0001:00011da0       ??1exception@std@@UAE@XZ   00412da0 f   LIBCMTD:stdexcpt.obj
  0001:00011dd0       ?what@exception@std@@UBEPBDXZ 00412dd0 f   LIBCMTD:stdexcpt.obj
  0001:00011e00       ??0bad_cast@std@@QAE@PBD@Z 00412e00 f   LIBCMTD:stdexcpt.obj
- 0001:00011e30       ??_Ebad_cast@std@@UAEPAXI@Z 00412e30 f i LIBCMTD:stdexcpt.obj
  0001:00011e30       ??_Gbad_cast@std@@UAEPAXI@Z 00412e30 f i LIBCMTD:stdexcpt.obj
+ 0001:00011e30       ??_Ebad_cast@std@@UAEPAXI@Z 00412e30 f i LIBCMTD:stdexcpt.obj
  0001:00011e60       ??0bad_cast@std@@QAE@ABV01@@Z 00412e60 f   LIBCMTD:stdexcpt.obj
  0001:00011e90       ??1bad_cast@std@@UAE@XZ    00412e90 f   LIBCMTD:stdexcpt.obj
  0001:00011eb0       ??0bad_typeid@std@@QAE@PBD@Z 00412eb0 f   LIBCMTD:stdexcpt.obj
- 0001:00011ee0       ??_Ebad_typeid@std@@UAEPAXI@Z 00412ee0 f i LIBCMTD:stdexcpt.obj
  0001:00011ee0       ??_Gbad_typeid@std@@UAEPAXI@Z 00412ee0 f i LIBCMTD:stdexcpt.obj
+ 0001:00011ee0       ??_Ebad_typeid@std@@UAEPAXI@Z 00412ee0 f i LIBCMTD:stdexcpt.obj
  0001:00011f10       ??0bad_typeid@std@@QAE@ABV01@@Z 00412f10 f   LIBCMTD:stdexcpt.obj
  0001:00011f40       ??1bad_typeid@std@@UAE@XZ  00412f40 f   LIBCMTD:stdexcpt.obj
  0001:00011f60       ??0__non_rtti_object@std@@QAE@PBD@Z 00412f60 f   LIBCMTD:stdexcpt.obj
@@ -624,8 +669,8 @@
  0001:00015b50       ___InternalCxxFrameHandler 00416b50 f   LIBCMTD:frame.obj
  0001:00016150       ??0bad_exception@std@@QAE@PBD@Z 00417150 f i LIBCMTD:frame.obj
  0001:00016180       ??1bad_exception@std@@UAE@XZ 00417180 f i LIBCMTD:frame.obj
- 0001:000161a0       ??_Ebad_exception@std@@UAEPAXI@Z 004171a0 f i LIBCMTD:frame.obj
  0001:000161a0       ??_Gbad_exception@std@@UAEPAXI@Z 004171a0 f i LIBCMTD:frame.obj
+ 0001:000161a0       ??_Ebad_exception@std@@UAEPAXI@Z 004171a0 f i LIBCMTD:frame.obj
  0001:000161d0       ??0bad_exception@std@@QAE@ABV01@@Z 004171d0 f i LIBCMTD:frame.obj
  0001:00016380       ___TypeMatch               00417380 f   LIBCMTD:frame.obj
  0001:00016430       ___FrameUnwindFilter       00417430 f   LIBCMTD:frame.obj
@@ -829,8 +874,8 @@
  0001:00022f00       __scwprintf_p_l            00423f00 f   LIBCMTD:swprintf.obj
  0001:00022f30       _wcslen                    00423f30 f   LIBCMTD:wcslen.obj
  0001:00022f60       _wcscpy_s                  00423f60 f   LIBCMTD:wcscpy_s.obj
- 0001:00023240       __chkstk                   00424240 f   LIBCMTD:chkstk.obj
  0001:00023240       __alloca_probe             00424240     LIBCMTD:chkstk.obj
+ 0001:00023240       __chkstk                   00424240 f   LIBCMTD:chkstk.obj
  0001:00023270       ?__CxxUnhandledExceptionFilter@@YGJPAU_EXCEPTION_POINTERS@@@Z 00424270 f   LIBCMTD:unhandld.obj
  0001:000232e0       ___CxxSetUnhandledExceptionFilter 004242e0 f   LIBCMTD:unhandld.obj
  0001:00023300       ___security_init_cookie    00424300 f   LIBCMTD:gs_support.obj
@@ -1605,11 +1650,14 @@
  0001:0005a650       _fputs                     0045b650 f   LIBCMTD:fputs.obj
  0001:0005a8f0       _fwrite                    0045b8f0 f   LIBCMTD:fwrite.obj
  0001:0005aa00       __fwrite_nolock            0045ba00 f   LIBCMTD:fwrite.obj
- 0001:0005add0       ?create_random_texture@@YAXPAUIDirect3DDevice9@@PAPAUIDirect3DTexture9@@I@Z 0045bdd0 f   intro.obj
- 0001:0005aeb0       ?create_random_chambers@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z 0045beb0 f   intro.obj
- 0001:0005b3e0       ?intro_init@@YAXPAUIDirect3DDevice9@@@Z 0045c3e0 f   intro.obj
- 0001:0005b690       ?intro_handle_input@@YAXPAVInputManager@@M@Z 0045c690 f   intro.obj
- 0001:0005b8d0       ?intro_do@@YAXPAUIDirect3DDevice9@@M@Z 0045c8d0 f   intro.obj
+ 0001:0005bc40       __CIsin_pentium4           0045cc40 f   LIBCMTD:_sin_pentium4_.obj
+ 0001:0005bc58       __sin_pentium4             0045cc58     LIBCMTD:_sin_pentium4_.obj
+ 0001:0005be10       ?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAEXII@Z 0045ce10 f i intro.obj
+ 0001:0005bfc0       ?create_random_texture@@YAXPAUIDirect3DDevice9@@PAPAUIDirect3DTexture9@@I@Z 0045cfc0 f   intro.obj
+ 0001:0005c0a0       ?create_random_chambers@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z 0045d0a0 f   intro.obj
+ 0001:0005c5d0       ?intro_init@@YAXPAUIDirect3DDevice9@@@Z 0045d5d0 f   intro.obj
+ 0001:0005c8c0       ?intro_handle_input@@YAXPAVInputManager@@M@Z 0045d8c0 f   intro.obj
+ 0001:0005cb00       ?intro_do@@YAXPAUIDirect3DDevice9@@M@Z 0045db00 f   intro.obj
  0002:00000000       ___xc_a                    00474000     LIBCMTD:crt0init.obj
  0002:00000208       ___xc_z                    00474208     LIBCMTD:crt0init.obj
  0002:0000030c       ___xi_a                    0047430c     LIBCMTD:crt0init.obj
@@ -1629,6 +1677,10 @@
  0002:00000d98       __real@3ff6666660000000    00474d98     Camera.obj
  0002:00000da4       __real@bfb33333            00474da4     Camera.obj
  0002:00000da8       __real@bff6666660000000    00474da8     Camera.obj
+ 0002:00001ef0       ??_C@_0EF@ENAOALNF@c?3?2Program?5Files?5?$CIx86?$CJ?2Microsoft@ 00475ef0     intro.obj
+ 0002:00001f38       ??_C@_1IM@ILJNOKF@?$AAc?$AA?3?$AA?2?$AAP?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAF?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAM?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ 00475f38     intro.obj
+ 0002:00001fd8       __DEFAULT_CW_in_mem        00475fd8     LIBCMTD:_common_.obj
+ 0002:00001fda       __pi_by_2_to_61            00475fda     LIBCMTD:_common_.obj
  0002:000022a4       ?_Value@?$_Is_swap_move@U_Swap_move_tag@std@@@std@@2_NB 004762a4     intro.obj
  0002:000022a8       ?collate@?$_Locbase@H@std@@2HB 004762a8     intro.obj
  0002:000022ac       ?ctype@?$_Locbase@H@std@@2HB 004762ac     intro.obj
@@ -1683,9 +1735,9 @@
  0002:000023ac       __real@3e800000            004763ac     intro.obj
  0002:000023b0       __real@3ff0000000000000    004763b0     intro.obj
  0002:000023bc       ?npos@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@2IB 004763bc     intro.obj
- 0002:000023c0       ??_C@_0EF@ENAOALNF@c?3?2Program?5Files?5?$CIx86?$CJ?2Microsoft@ 004763c0     intro.obj
+ 0002:000023c0       __real@3fe6a0a5269595ff    004763c0     intro.obj
  0002:00002418       ??_7bad_alloc@std@@6B@     00476418     intro.obj
- 0002:00002428       ??_C@_1IM@ILJNOKF@?$AAc?$AA?3?$AA?2?$AAP?$AAr?$AAo?$AAg?$AAr?$AAa?$AAm?$AA?5?$AAF?$AAi?$AAl?$AAe?$AAs?$AA?5?$AA?$CI?$AAx?$AA8?$AA6?$AA?$CJ?$AA?2?$AAM?$AAi?$AAc?$AAr?$AAo?$AAs?$AAo?$AAf?$AAt@ 00476428     intro.obj
+ 0002:00002428       __real@3fa999999999999a    00476428     intro.obj
  0002:000024d0       ??_C@_1CK@EOPGIILJ@?$AAi?$AAn?$AAv?$AAa?$AAl?$AAi?$AAd?$AA?5?$AAn?$AAu?$AAl?$AAl?$AA?5?$AAp?$AAo?$AAi?$AAn?$AAt?$AAe?$AAr?$AA?$AA@ 004764d0     intro.obj
  0002:00002558       __real@3f50624de0000000    00476558     main_deb.obj
  0002:00002568       __real@404e000000000000    00476568     main_deb.obj
@@ -3331,6 +3383,8 @@
  0003:00002660       __days                     0048f660     LIBCMTD:days.obj
  0003:000026ac       ??_R0?AVout_of_range@std@@@8 0048f6ac     libcpmtd:string.obj
  0003:000026cc       ??_R0?AVinvalid_argument@std@@@8 0048f6cc     libcpmtd:string.obj
+ 0003:00002700       __indefinite               0048f700     LIBCMTD:_87disp_.obj
+ 0003:0000270a       __piby2                    0048f70a     LIBCMTD:_87disp_.obj
  0003:00002fbc       ___fastflag                0048ffbc     LIBCMTD:_fpinit_.obj
  0003:00002fc0       __adjust_fdiv              0048ffc0     LIBCMTD:_fpinit_.obj
  0003:00002fd8       ___pInvalidArgHandler      0048ffd8     LIBCMTD:invarg.obj

@@ -32,9 +32,11 @@ static const float quadVerts[4*5] =
 static IDirect3DTexture9 *texture;
 static Shader *gShader;
 static Camera *camera;
-static D3DXVECTOR4 *chambers;
+static float lightTheta;
 #define CHAMBER_SIZE 4
 #define MAZE_FLAG 15
+#define LIGHT_PHI 0.70711
+#define LIGHT_SPEED 0.05
 //------------------------------------------------------------------------------------------------------------------
 
 void create_random_texture(IDirect3DDevice9 *d3dDevice, IDirect3DTexture9 **surface, UINT size)
@@ -134,8 +136,11 @@ void intro_init( IDirect3DDevice9 *d3dDevice )
 		{ "SCALE", "15" },
 		{ "SHIFT", "1024" },
 		{ "TILES", "1.45" },
-		{ "SAMPLES", "24" },
-		{ "SHADOWSAMPLES", "16" },
+		{ "SAMPLES", "16" },
+		{ "SHADOWSAMPLES", "8" },
+		{ "REFLECTSAMPLES", "8" },
+		{ "SHADOW_FALLOFF", "0.8" },
+		{ "AO_PLANE", "0.36" },
 		{ NULL, NULL }
 	};
 	std::string maze = create_random_chambers(CHAMBER_SIZE);
@@ -184,10 +189,15 @@ void intro_do( IDirect3DDevice9 *d3dDevice, float time)
 	camera->SetupRenderParameters(d3dDevice);
 	D3DSURFACE_DESC surfDesc;
 	texture->GetLevelDesc(0, &surfDesc);
+	lightTheta += time * LIGHT_SPEED;
+	const float twoPi = 2.0*D3DX_PI;
+	if(lightTheta >= twoPi)
+		lightTheta -= twoPi;
+	D3DXVECTOR3 lightDir(cos(LIGHT_PHI)*cos(lightTheta), sin(LIGHT_PHI), cos(LIGHT_PHI)*sin(lightTheta));
 	D3DXVECTOR2 texRes(1.0f/(float)surfDesc.Width, 1.0f/(float)surfDesc.Height);
 	D3DXVECTOR2 chamberRes(1.0f/(float)CHAMBER_SIZE, 1.0f/(float)CHAMBER_SIZE);
 	d3dDevice->SetPixelShaderConstantF(6, texRes, 1);
-	d3dDevice->SetPixelShaderConstantF(7, chamberRes, 1);
+	d3dDevice->SetPixelShaderConstantF(7, lightDir, 1);
 	d3dDevice->SetVertexShader(gShader->GetVertexShader());
     d3dDevice->SetPixelShader(gShader->GetPixelShader());
 	d3dDevice->SetTexture(0, texture);

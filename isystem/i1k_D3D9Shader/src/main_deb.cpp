@@ -263,7 +263,7 @@ int WINAPI WinMain( HINSTANCE instance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		OutputDebugString(str);
 
 		intro_handle_input(&inputMgr, dt);
-        intro_do( d3dDevice, time);
+        intro_do( d3dDevice, dt);
         DrawTime( info, time);
 		oldTime = time;
     }
