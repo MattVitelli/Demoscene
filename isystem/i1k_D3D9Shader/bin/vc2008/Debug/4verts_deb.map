@@ -1,6 +1,6 @@
  main_vc2008_deb
 
- Timestamp is 506fadf5 (Fri Oct 05 21:05:09 2012)
+ Timestamp is 5072717f (Sun Oct 07 23:23:59 2012)
 
  Preferred load address is 00400000
 
@@ -237,8 +237,8 @@
  0001:000082c0       ??_Elogic_error@std@@UAEPAXI@Z 004092c0 f i Maze.obj
  0001:00008310       ??1logic_error@std@@UAE@XZ 00409310 f i Maze.obj
  0001:00008360       ??1length_error@std@@UAE@XZ 00409360 f i Maze.obj
- 0001:000083a0       ??_Elength_error@std@@UAEPAXI@Z 004093a0 f i Maze.obj
  0001:000083a0       ??_Glength_error@std@@UAEPAXI@Z 004093a0 f i Maze.obj
+ 0001:000083a0       ??_Elength_error@std@@UAEPAXI@Z 004093a0 f i Maze.obj
  0001:000083f0       ?_Lmost@?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@IBEAAPAU_Node@?$_Tree_nod@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@2@XZ 004093f0 f i Maze.obj
  0001:00008430       ?_Root@?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@IBEAAPAU_Node@?$_Tree_nod@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@2@XZ 00409430 f i Maze.obj
  0001:00008470       ?_Tidy@?$_Tree@V?$_Tset_traits@HU?$less@H@std@@V?$allocator@H@2@$0A@@std@@@std@@IAEXXZ 00409470 f i Maze.obj
@@ -581,18 +581,18 @@
  0001:00011da0       ??1exception@std@@UAE@XZ   00412da0 f   LIBCMTD:stdexcpt.obj
  0001:00011dd0       ?what@exception@std@@UBEPBDXZ 00412dd0 f   LIBCMTD:stdexcpt.obj
  0001:00011e00       ??0bad_cast@std@@QAE@PBD@Z 00412e00 f   LIBCMTD:stdexcpt.obj
- 0001:00011e30       ??_Gbad_cast@std@@UAEPAXI@Z 00412e30 f i LIBCMTD:stdexcpt.obj
  0001:00011e30       ??_Ebad_cast@std@@UAEPAXI@Z 00412e30 f i LIBCMTD:stdexcpt.obj
+ 0001:00011e30       ??_Gbad_cast@std@@UAEPAXI@Z 00412e30 f i LIBCMTD:stdexcpt.obj
  0001:00011e60       ??0bad_cast@std@@QAE@ABV01@@Z 00412e60 f   LIBCMTD:stdexcpt.obj
  0001:00011e90       ??1bad_cast@std@@UAE@XZ    00412e90 f   LIBCMTD:stdexcpt.obj
  0001:00011eb0       ??0bad_typeid@std@@QAE@PBD@Z 00412eb0 f   LIBCMTD:stdexcpt.obj
- 0001:00011ee0       ??_Gbad_typeid@std@@UAEPAXI@Z 00412ee0 f i LIBCMTD:stdexcpt.obj
  0001:00011ee0       ??_Ebad_typeid@std@@UAEPAXI@Z 00412ee0 f i LIBCMTD:stdexcpt.obj
+ 0001:00011ee0       ??_Gbad_typeid@std@@UAEPAXI@Z 00412ee0 f i LIBCMTD:stdexcpt.obj
  0001:00011f10       ??0bad_typeid@std@@QAE@ABV01@@Z 00412f10 f   LIBCMTD:stdexcpt.obj
  0001:00011f40       ??1bad_typeid@std@@UAE@XZ  00412f40 f   LIBCMTD:stdexcpt.obj
  0001:00011f60       ??0__non_rtti_object@std@@QAE@PBD@Z 00412f60 f   LIBCMTD:stdexcpt.obj
- 0001:00011f90       ??_E__non_rtti_object@std@@UAEPAXI@Z 00412f90 f i LIBCMTD:stdexcpt.obj
  0001:00011f90       ??_G__non_rtti_object@std@@UAEPAXI@Z 00412f90 f i LIBCMTD:stdexcpt.obj
+ 0001:00011f90       ??_E__non_rtti_object@std@@UAEPAXI@Z 00412f90 f i LIBCMTD:stdexcpt.obj
  0001:00011fc0       ??0__non_rtti_object@std@@QAE@ABV01@@Z 00412fc0 f   LIBCMTD:stdexcpt.obj
  0001:00011ff0       ??1__non_rtti_object@std@@UAE@XZ 00412ff0 f   LIBCMTD:stdexcpt.obj
  0001:00012010       _strlen                    00413010 f   LIBCMTD:strlen.obj
@@ -669,8 +669,8 @@
  0001:00015b50       ___InternalCxxFrameHandler 00416b50 f   LIBCMTD:frame.obj
  0001:00016150       ??0bad_exception@std@@QAE@PBD@Z 00417150 f i LIBCMTD:frame.obj
  0001:00016180       ??1bad_exception@std@@UAE@XZ 00417180 f i LIBCMTD:frame.obj
- 0001:000161a0       ??_Gbad_exception@std@@UAEPAXI@Z 004171a0 f i LIBCMTD:frame.obj
  0001:000161a0       ??_Ebad_exception@std@@UAEPAXI@Z 004171a0 f i LIBCMTD:frame.obj
+ 0001:000161a0       ??_Gbad_exception@std@@UAEPAXI@Z 004171a0 f i LIBCMTD:frame.obj
  0001:000161d0       ??0bad_exception@std@@QAE@ABV01@@Z 004171d0 f i LIBCMTD:frame.obj
  0001:00016380       ___TypeMatch               00417380 f   LIBCMTD:frame.obj
  0001:00016430       ___FrameUnwindFilter       00417430 f   LIBCMTD:frame.obj
@@ -874,8 +874,8 @@
  0001:00022f00       __scwprintf_p_l            00423f00 f   LIBCMTD:swprintf.obj
  0001:00022f30       _wcslen                    00423f30 f   LIBCMTD:wcslen.obj
  0001:00022f60       _wcscpy_s                  00423f60 f   LIBCMTD:wcscpy_s.obj
- 0001:00023240       __alloca_probe             00424240     LIBCMTD:chkstk.obj
  0001:00023240       __chkstk                   00424240 f   LIBCMTD:chkstk.obj
+ 0001:00023240       __alloca_probe             00424240     LIBCMTD:chkstk.obj
  0001:00023270       ?__CxxUnhandledExceptionFilter@@YGJPAU_EXCEPTION_POINTERS@@@Z 00424270 f   LIBCMTD:unhandld.obj
  0001:000232e0       ___CxxSetUnhandledExceptionFilter 004242e0 f   LIBCMTD:unhandld.obj
  0001:00023300       ___security_init_cookie    00424300 f   LIBCMTD:gs_support.obj
@@ -985,8 +985,8 @@
  0001:00029e3d       __abnormal_termination     0042ae3d f   LIBCMTD:exsup.obj
  0001:00029e60       __NLG_Notify1              0042ae60 f   LIBCMTD:exsup.obj
  0001:00029e69       __NLG_Notify               0042ae69 f   LIBCMTD:exsup.obj
- 0001:00029e80       __NLG_Dispatch             0042ae80     LIBCMTD:exsup.obj
  0001:00029e80       __NLG_Dispatch2            0042ae80     LIBCMTD:exsup.obj
+ 0001:00029e80       __NLG_Dispatch             0042ae80     LIBCMTD:exsup.obj
  0001:00029e88       __NLG_Call                 0042ae88 f   LIBCMTD:exsup.obj
  0001:00029e8a       __NLG_Return2              0042ae8a     LIBCMTD:exsup.obj
  0001:00029e90       _abort                     0042ae90 f   LIBCMTD:abort.obj
@@ -1654,10 +1654,11 @@
  0001:0005bc58       __sin_pentium4             0045cc58     LIBCMTD:_sin_pentium4_.obj
  0001:0005be10       ?_Copy@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IAEXII@Z 0045ce10 f i intro.obj
  0001:0005bfc0       ?create_random_texture@@YAXPAUIDirect3DDevice9@@PAPAUIDirect3DTexture9@@I@Z 0045cfc0 f   intro.obj
- 0001:0005c0a0       ?create_random_chambers@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z 0045d0a0 f   intro.obj
- 0001:0005c5d0       ?intro_init@@YAXPAUIDirect3DDevice9@@@Z 0045d5d0 f   intro.obj
- 0001:0005c8c0       ?intro_handle_input@@YAXPAVInputManager@@M@Z 0045d8c0 f   intro.obj
- 0001:0005cb00       ?intro_do@@YAXPAUIDirect3DDevice9@@M@Z 0045db00 f   intro.obj
+ 0001:0005c0a0       ?create_render_targets@@YAXPAUIDirect3DDevice9@@@Z 0045d0a0 f   intro.obj
+ 0001:0005c1d0       ?create_random_chambers@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z 0045d1d0 f   intro.obj
+ 0001:0005c700       ?intro_init@@YAXPAUIDirect3DDevice9@@@Z 0045d700 f   intro.obj
+ 0001:0005ca70       ?intro_handle_input@@YAXPAVInputManager@@M@Z 0045da70 f   intro.obj
+ 0001:0005ccb0       ?intro_do@@YAXPAUIDirect3DDevice9@@M@Z 0045dcb0 f   intro.obj
  0002:00000000       ___xc_a                    00474000     LIBCMTD:crt0init.obj
  0002:00000208       ___xc_z                    00474208     LIBCMTD:crt0init.obj
  0002:0000030c       ___xi_a                    0047430c     LIBCMTD:crt0init.obj

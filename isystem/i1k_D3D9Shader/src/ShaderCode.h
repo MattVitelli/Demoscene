@@ -17,9 +17,18 @@ static const char generic2DVS[] = \
 "{"
 	"PSIN OUT;"
 	"OUT.Pos = float4(Pos.xy,0,1);"
-	"OUT.TexCoord = Pos.xy;"
+	"OUT.TexCoord = TexCoord.xy;"
 	"return OUT;"
 "}";
+
+
+static const char generic2DPS[] = \
+
+"float4 ps_main(float2 TC : TEXCOORD0, uniform sampler2D BaseMap : register(S0), uniform float2 InvRes : register(C0)):color"
+"{"
+	"return tex2D(BaseMap, TC+0.5*InvRes);"
+"}";
+
 
 static const char densityVS[] = \
 "struct PSIN { float4 Pos : POSITION0; float3 Ray : TEXCOORD0; };"
@@ -211,12 +220,4 @@ static const char densityPS[] = \
 	"OUT.Color = (attribID/5) * (max(0.0,SHADOW_FALLOFF*(1-m)*(shadowAttrib==0))*max(0.0,dot(N,L))*0.5 + 0.2*aoTerm + 0.3*spec);"//tex2D(NoiseMap, GetTCWall(samplePos.xz)).x//((samplePos.xz+1024)*invRes)/10 + 0.5*invRes).x*0.2 * float4(N,1);"
 	"return OUT;"
 "}";
-
-static const char shaderCodePS[] = \
-
-"float4 ps_main(float2 TC : TEXCOORD0):color"
-"{"
-	"return float4(TC.x,TC.y,0.4,1);"
-"}";
-
 #endif

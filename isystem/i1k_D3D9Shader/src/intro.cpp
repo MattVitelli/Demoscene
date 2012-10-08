@@ -22,15 +22,23 @@
 
 static const float quadVerts[4*5] =
 {
-  1.0f,-1.0f,0.0f,1.0f,0.0f,
- -1.0f,-1.0f,0.0f,0.0f,0.0f,
-  1.0f, 1.0f,0.0f,1.0f,1.0f,
- -1.0f, 1.0f,0.0f,0.0f,1.0f
+  1.0f,-1.0f,0.0f,1.0f,1.0f,
+ -1.0f,-1.0f,0.0f,0.0f,1.0f,
+  1.0f, 1.0f,0.0f,1.0f,0.0f,
+ -1.0f, 1.0f,0.0f,0.0f,0.0f
 };
 
 //------------------------------------------------------------------------------------------------------------------
 static IDirect3DTexture9 *texture;
+static IDirect3DTexture9 *sceneTexture;
+static IDirect3DTexture9 *shadowTexture;
+static IDirect3DTexture9 *reflectTexture;
+static IDirect3DSurface9 *backBuffer;
+static IDirect3DSurface9 *rtScene;
+static IDirect3DSurface9 *rtShadow;
+static IDirect3DSurface9 *rtReflect;
 static Shader *gShader;
+static Shader *basic2DShader;
 static Camera *camera;
 static float lightTheta;
 #define CHAMBER_SIZE 4
@@ -54,6 +62,17 @@ void create_random_texture(IDirect3DDevice9 *d3dDevice, IDirect3DTexture9 **surf
 	*/
 	(*surface)->UnlockRect(0);
 	//D3DXSaveTextureToFile("test.dds", D3DXIFF_DDS, *surface, NULL);
+}
+
+void create_render_targets(IDirect3DDevice9 *d3dDevice)
+{
+	d3dDevice->CreateTexture(XRES, YRES, 1, D3DUSAGE_RENDERTARGET, D3DFMT_A16B16G16R16F, D3DPOOL_DEFAULT, &sceneTexture, NULL);
+	d3dDevice->CreateTexture(XRES/4, YRES/4, 1, D3DUSAGE_RENDERTARGET, D3DFMT_A8R8G8B8, D3DPOOL_DEFAULT, &shadowTexture, NULL);
+	d3dDevice->CreateTexture(XRES/4, YRES/4, 1, D3DUSAGE_RENDERTARGET, D3DFMT_A8R8G8B8, D3DPOOL_DEFAULT, &reflectTexture, NULL);
+	sceneTexture->GetSurfaceLevel(0, &rtScene);
+	shadowTexture->GetSurfaceLevel(0, &rtShadow);
+	reflectTexture->GetSurfaceLevel(0, &rtReflect);
+	d3dDevice->GetRenderTarget(0, &backBuffer);
 }
 
 std::string create_random_chambers(int size)
@@ -147,9 +166,12 @@ void intro_init( IDirect3DDevice9 *d3dDevice )
 	maze += distanceFunctionPS;
 	maze += densityPS;
 	const char *densityShader = maze.c_str();
+	create_render_targets(d3dDevice);
 
 	gShader = new Shader();
 	gShader->CompileFromStream(d3dDevice, macro, densityShader, densityVS);
+	basic2DShader = new Shader();
+	basic2DShader->CompileFromStream(d3dDevice, generic2DPS, generic2DVS);
 	camera = new Camera();
 	create_random_texture(d3dDevice, &texture, 16);
 }
@@ -185,7 +207,11 @@ void intro_handle_input(InputManager *input, float time)
 
 void intro_do( IDirect3DDevice9 *d3dDevice, float time)
 {	
+	d3dDevice->SetRenderTarget(0, rtScene);
+	d3dDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0,0,0), 1.0f, 0);
     d3dDevice->BeginScene();
+	d3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+	d3dDevice->SetRenderState(D3DRS_ZENABLE, FALSE); 
 	camera->SetupRenderParameters(d3dDevice);
 	D3DSURFACE_DESC surfDesc;
 	texture->GetLevelDesc(0, &surfDesc);
@@ -203,6 +229,17 @@ void intro_do( IDirect3DDevice9 *d3dDevice, float time)
 	d3dDevice->SetTexture(0, texture);
     d3dDevice->SetFVF( D3DFVF_XYZ|D3DFVF_TEX1 );
     d3dDevice->DrawPrimitiveUP(D3DPT_TRIANGLESTRIP,2,quadVerts,5*sizeof(float));
+
+	d3dDevice->SetRenderTarget(0, backBuffer);
+	d3dDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0,0,0), 1.0f, 0);
+	sceneTexture->GetLevelDesc(0, &surfDesc);
+	D3DXVECTOR2 invRes(1.0f/(float)surfDesc.Width, 1.0f/(float)surfDesc.Height);
+	d3dDevice->SetPixelShaderConstantF(0, invRes, 1);
+	d3dDevice->SetVertexShader(basic2DShader->GetVertexShader());
+	d3dDevice->SetPixelShader(basic2DShader->GetPixelShader());
+	d3dDevice->SetTexture(0, sceneTexture);
+	d3dDevice->DrawPrimitiveUP(D3DPT_TRIANGLESTRIP,2,quadVerts,5*sizeof(float));
+
     d3dDevice->EndScene();
     d3dDevice->Present( NULL, NULL, NULL, NULL );
 }
